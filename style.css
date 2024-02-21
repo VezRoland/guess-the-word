@@ -1,0 +1,11 @@
+#letterFields {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.letterField {
+  height: 1.5em;
+  aspect-ratio: 1;
+  background: gray;
+}
