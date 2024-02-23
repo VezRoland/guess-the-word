@@ -1,5 +1,5 @@
 import { abc } from './words.js'
-import { randomWord, matches } from './main.js'
+import { matches } from './main.js'
 
 const gameTable = document.querySelector('#gameTable')
 
@@ -16,13 +16,13 @@ export function initTable(letters) {
     letterFields.appendChild(field.elem)
   })
 
-  gameTable.appendChild(letterFields)
+  const oldLetterFields = gameTable.querySelector('#letterFields')
+  oldLetterFields ? gameTable.replaceChild(letterFields, oldLetterFields) : gameTable.appendChild(letterFields)
 
   window.addEventListener('keyup', handleKeyup)
 }
 
 export function clearTable() {
-  gameTable.replaceChildren()
   window.removeEventListener('keyup', handleKeyup)
 }
 
@@ -43,12 +43,17 @@ function letterField(letter) {
   return { elem, compare, show }
 }
 
-function handleKeyup({ key }) {
-  key = key.toLowerCase()
+export function submitInput(letter) {
+  if (!(abc.includes(letter))) return
+  Array.from(document.querySelectorAll('#letterButton')).find(button => button.textContent === letter).setAttribute('disabled', true)
 
   fields.forEach(field => {
-    if (!field.compare(key)) return
+    if (!field.compare(letter)) return
     field.show()
     matches.increase()
   })
+}
+
+function handleKeyup({ key }) {
+  submitInput(key.toLowerCase())
 }

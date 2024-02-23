@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="style.css">
   <script defer type="module" src="main.js"></script>
-  <title>Szókitalálós</title>
+  <title>Szókitaláló</title>
 </head>
 <body>
   <dialog id="startDialog">
-    <h2>Szókitalálós</h2>
-    <p>Találd ki a véletlenszerűen kiválasztott szót az idő lejárta előtt! Kattints a kezdés gombra a játék kezdetéhez!</p>
-    <form method="dialog">
-      <button type="submit">Kezdés</button>
-    </form>
+    <div class="inside">
+      <h2>Szókitaláló</h2>
+      <p>Találd ki a véletlenszerűen kiválasztott szót az idő lejárta előtt! Kattints a kezdés gombra a játék kezdetéhez!</p>
+      <form method="dialog">
+        <button type="submit">Kezdés</button>
+      </form>
+    </div>
   </dialog>
 
   <span id="time"></span>
   <span id="matches"></span>
 
-  <main id="gameTable"></main>
+  <main id="gameTable">
+    <ul id="letterButtons"></ul>
+  </main>
 </body>
 </html>
