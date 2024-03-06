@@ -45,7 +45,7 @@ function letterField(letter) {
 
 export function submitInput(letter) {
   if (!(abc.includes(letter))) return
-  Array.from(document.querySelectorAll('#letterButton')).find(button => button.textContent === letter).setAttribute('disabled', true)
+  Array.from(document.querySelectorAll('.letterButton')).find(button => button.textContent === letter).setAttribute('disabled', true)
 
   fields.forEach(field => {
     if (!field.compare(letter)) return

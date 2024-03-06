@@ -35,6 +35,10 @@ h2 {
   backdrop-filter: blur(0.5rem);
 }
 
+#startDialog::backdrop {
+  background: rgb(24, 24, 27, 0.85);
+}
+
 #startDialog .inside {
   display: flex;
   flex-direction: column;
@@ -57,7 +61,7 @@ h2 {
 
 #gameTable {
   width: min(50rem, 100%);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,6 +90,8 @@ h2 {
 }
 
 #time {
+  position: absolute;
+  padding: 1rem;
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -99,7 +105,7 @@ h2 {
   list-style: none;
 }
 
-#letterButton {
+.letterButton {
   width: 3em;
   aspect-ratio: 1;
   border: none;
@@ -107,7 +113,7 @@ h2 {
   background: var(--zinc-800);
 }
 
-#letterButton:disabled {
+.letterButton:disabled {
   border: 0.15rem solid var(--zinc-800);
   background: none;
 }
